@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>2015芒果TV年会抽奖</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimal-ui"/>
+
+<link rel="stylesheet" href="/css/main.css" type="text/css"/>
+  <style>
+    body{
+      zoom: 1
+    }
+    .ball-box{
+      position: absolute;
+      top: 900px;
+      left: 0px;
+    }
+    .container{
+      overflow: hidden;
+      width: 1440px;
+      height: 900px;
+    }
+    .result-20, .result-40, .result-tv{
+      display: block;
+      z-index: 9 !important;
+    }
+    #decorate li{
+      position: absolute;
+      top: 900px;
+      left: 0px;
+      z-index: -4;
+    }
+    #modal-window{
+      z-index: 10;
+    }
+    .container .ball-box li{
+      width: 100px;
+      height: 181px;
+    }
+    .container .ball-box li.small{
+      width: 140px;
+      height: 283.5px;
+    }
+  </style>
+
+
+</head>
+<body>
+<script id="resultOther" type="text/x-handlebars-template">
+  <div class="result-20">
+    <ul class="honey">
+      {{#each list}}
+      <li>
+        <img src="/api/avatar/{{avatar}}" alt="">
+        <span>{{name}}</span>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</script>
+
+<script id="result20" type="text/x-handlebars-template">
+  <div class="result-20">
+    <ul class="product">
+      <li style="background: url(../../image/product-{{pro1}}.png) 0 0/auto 100% no-repeat"><!-- 产品2 --></li>
+      <li style="background: url(../../image/product-{{pro2}}.png) 0 0/auto 100% no-repeat"><!-- 产品3 --></li>
+    </ul>
+    <ul class="honey">
+      {{#each list}}
+      <li>
+        <img src="/api/avatar/{{avatar}}" alt="">
+        <span>{{name}}</span>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</script>
+
+<script id="result40" type="text/x-handlebars-template">
+  <div class="result-40">
+    <ul class="product">
+      <li style="background: url(../../image/product-{{pro1}}.png) 0 0/auto 100% no-repeat"><!-- 产品1 --></li>
+      <li style="background: url(../../image/product-{{pro2}}.png) 0 0/auto 100% no-repeat"><!-- 产品2 --></li>
+      <li style="background: url(../../image/product-{{pro3}}.png) 0 0/auto 100% no-repeat"><!-- 产品3 --></li>
+      <li style="background: url(../../image/product-{{pro4}}.png) 0 0/auto 100% no-repeat"><!-- 产品4 --></li>
+    </ul>
+    <ul class="honey">
+      {{#each list}}
+      <li>
+        <img src="/api/avatar/{{avatar}}" alt="">
+        <span>{{name}}</span>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</script>
+
+<script id="resultTV"  type="text/x-handlebars-template">
+  <div class="result-tv">
+  <div class="product"></div>
+  <div class="honey">
+    <!-- 输出头像+名字 -->
+    {{#each list}}
+      <img src="/api/avatar/{{avatar}}" alt="">
+      <span>{{name}}</span>
+    {{/each}}
+  </div>
+  </div>
+</script>
+
+<div class="container">
+  <!-- balls container -->
+
+  <!--装饰-->
+  <ul id="decorate">
+  </ul>
+  <ul class="ball-box" id="vessel">
+  </ul>
+
+  <!-- logo -->
+  <div class="logo"></div>
+  <!-- title -->
+  <div class="title"></div>
+  <!-- mask -->
+  <div class="mask" id="mask">
+  <!-- 遮罩层,默认隐藏,显示结果时show() -->
+  </div>
+
+  <div id="modal-window"></div>
+</div>
+<script src="lib/lodash.js"></script>
+<script src="lib/store.min.js"></script>
+<script src="lib/handlebars.js"></script>
+<script src="lib/jquery.min.js"></script>
+<script src="lib/jquery.hotkeys.js"></script>
+<script src="lib/howler.js"></script>
+<script src="lib/async.js"></script>
+<script src="js/service.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/background-animation.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/run.js"></script>
+
+</body>
+</html>
