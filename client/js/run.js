@@ -169,22 +169,6 @@ var showWinnerList = function(queue, next){
   }, 50)
 
 };
-//获取奖品列表
-var getProductList = function(){
-  var hadDoWinnerCount = store.get('hadDoWinnerCount');
-  hadDoWinnerCount = +hadDoWinnerCount
-  switch(hadDoWinnerCount){
-    case 1: return [6,2,1,3];//pk
-    case 2: return [5,1];//ok
-    case 3: return [6,3];// ok
-    case 4: return [6,3]; //ok
-    case 5: return [5,1];//ok
-    case 6: return [5,1];//ok
-    case 7: return [5,1];//ok
-    case 8: return [6,2,1,3];//ok
-  }
-};
-
 
 //从停顿处选择获取的人
 var chooseTheWinner = function(){
@@ -194,10 +178,10 @@ var chooseTheWinner = function(){
     service.postEmployeeList(queue, function(data){
 
       var template = getResultTemplate(winnerCount);
-      var productList = getProductList() || [];
+      var productList = data.productList || [];
       var html = template(
         {
-          list:data,
+          list: data.employeeList,
           pro1: productList[0],
           pro2: productList[1],
           pro3: productList[2],
@@ -228,8 +212,6 @@ $(document).bind('keyup.return', function(){
   operationalError = true;
   setTimeout(function(){operationalError = false}, operationalInterval);
   if(GLOBAL){
-    var hadDoWinnerCount = store.get('hadDoWinnerCount');
-    store.set('hadDoWinnerCount', hadDoWinnerCount + 1);
     $(".doingAnimate").stop();
     bgMusic.pause();
     stopMusic.play();

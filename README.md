@@ -4,7 +4,9 @@ Lottery
 
 ## 基本
 
-本程序基于浏览器．本程序基于nodejs. 数据库基于sqllite3． 分辨率1440 * 900．　实际运行的屏幕是 15米　*　9米
+本程序基于浏览器．本程序基于nodejs. 数据库基于sqllite3． 分辨率1440 * 900．实际运行的屏幕是 15米*9米
+
+本程序基于linux编写，一般情况下，window也可以跑起来，但是不排除存在一些错误
 
 ## 环境要求
 
@@ -21,41 +23,78 @@ clone 本仓库到本地后，进去根目录．
 
 ```
 cd lottery
+npm install
 ```
 
-## 启动
+## 运行demo
+
+### 启动
+
 ```
 npm start
 ```
-注意：由于本程序依赖数据库，而本源代码不包括数据库，需要添加数据才能使用．
+### 使用
 
-## 数据添加说明
+启动应用后，打开浏览器(chrome或者firefox) 打开浏览器,输入 localhost:3000/index.html 可以看到抽奖界面．
+按回车键 进行抽奖和下一轮抽奖．
+
+由于抽奖的数目由数据的以产生的数据来决定，因此在抽完配置的数量后，再抽只会抽取一个，可以通过运行
+
+```
+node-dev server/src/reset-winner-list.coffee
+```
+重置中奖数据库．
+注意所有命令必须在项目根目录下运行．
+
+注意：由于本程序依赖数据库，而本源代码仅包括测试数据库，实际运行中需要添加数据才能使用．
+
+## 正式使用
+
+### 删除测试数据库
+
+找到db.sqlite删除．（如需回复测试数据库,可以运行npm test进行初始化测试数据库）
+
+### 正式数据添加说明
 
 找到文件```server/src/configure.coffee```
 
-修改
+1. 修改测试环境变量
+```
+exports.isTestEnviroment = true
+```
+为 (运行demo请设置为true):
+```
+exports.isTestEnviroment = false
+```
+
+２.修改抽奖人员头像位置
+
 ```
 exports.conver =
   sourceDir: "/home/ec/dumps/photos"
   distDir: "/home/ec/dumps/dist"
 ```
 第一个是照片原文件夹，把公司人员的大头贴 最好是300 * 300 px（请利用ps或者其他工具先批量处理完成）
-放到```sourceDir```文件夹内,照片为人员姓名或者编号（存到数据库里面）．
-第二个```distDir```是数据关联的照片文件夹，指定它，并且使该文件夹为空
+放到```sourceDir```文件夹内,照片的文件名为人员姓名或者编号（这个将存到数据库里面）．
+第二个```distDir```是数据关联的照片文件夹，指定它，并且使该文件夹为空．
+注意这里的文件夹必须为绝对路径！
 然后在根目录```lottery```下运行
 ```
 node-dev server/src/convert.coffee
 ```
-就会自动扫描文件夹，并处理人员名单到数据库．（数据库因为使用的是sqllite3文本数据库,因此不需要额外安装）
+就会自动扫描文件夹，并处理人员名单到数据库．这样数据库就初始化完成了．（数据库因为使用的是sqllite3文本数据库,因此不需要额外安装）
 可以下载SQLliteStudio数据库管理器，打开根目录下的db.sqlite文件，即可浏览数据．
 
-## 使用
-启动应用后，打开浏览器(chrome或者firefox) 打开浏览器,输入 localhost:3000 可以看到抽奖界面．
-按回车键 进行抽奖和下一轮抽奖．
+3.在项目目录下运行
+```
+npm start
+```
+访问localhost:3000/index.html即可看到抽奖界面
 
-打开浏览器localhost:3000/controller.html可以看到抽奖的名单
+打开localhost:3000/controller.html　可以看到抽奖的中奖名单
 
-## 资源
+
+## 相关图片资源
 1. 相关图片放在了client/image目录下，其中奖品图片为product-1到product-６, product-tv.
 
 2.每轮中奖的数量在```server/src/configure.coffee```配置．

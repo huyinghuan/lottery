@@ -7,7 +7,8 @@ _async = require 'async'
 
 _Bean = require './bean/employee'
 
-_config = require('./configure').conver
+configure = require('./configure')
+_config = configure.conver
 
 
 sourceDir = _config.sourceDir
@@ -57,4 +58,8 @@ thum = ()->
   , ()->
   )
 
-thum()
+
+if configure.isTestEnviroment
+  require('./test-assets/add-test-data')
+else
+  thum()

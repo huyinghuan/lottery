@@ -3,6 +3,7 @@ Bean = require '../bean/employee'
 Award = require '../bean/award'
 _async = require 'async'
 _ = require 'lodash'
+configure = require '../configure'
 award = new Award()
 bean = new Bean()
 
@@ -31,7 +32,14 @@ class Employee extends Base
     )
     #获取中奖者名单
     queue.push((cb)->
-      bean.getList(winners).then((r)-> resp.send(r)).catch((e)-> cb(e))
+      bean.getList(winners).then((winnerList)->
+        award.getAll((error, hasProductionList)->
+          count = hasProductionList.length
+          productList = configure.winnersProductlist[count - 1]
+          resp.send({employeeList: winnerList, productList: productList})
+        )
+      )
+      .catch((e)-> cb(e))
     )
 
     _async.series(queue, (error, results)->

@@ -1,12 +1,15 @@
 fs = require 'fs'
 path = require 'path'
 Base = require './base'
+configure = require('../configure')
+isTestEnv = configure.isTestEnviroment
 
-distDir = require('../configure').conver.distDir
+distDir = configure.conver.distDir
 
 class Avatar extends Base
   constructor: ->
   get: (req, resp, next)->
+    return resp.sendFile(configure.testAvatar) if isTestEnv
     id = req.params.id
     filePath = path.join distDir, id
     resp.sendFile filePath, (err)->

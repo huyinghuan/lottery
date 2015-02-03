@@ -16,7 +16,7 @@
     "water-pit": "0.0.2"
   },
   "scripts": {
-    "pretest": "coffee -o server/dist -c server/src",
-    "start": "node-dev server/src/index.coffee"
+    "start": "node-dev server/src/index.coffee",
+    "test": "node-dev server/src/convert.coffee"
   }
 }
