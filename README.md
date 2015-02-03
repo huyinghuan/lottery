@@ -33,6 +33,11 @@ npm install
 ```
 npm start
 ```
+demo效果:
+![alt tag](https://cloud.githubusercontent.com/assets/3005433/6016636/e36c86b4-abbf-11e4-9847-98d9315c477a.gif)
+
+图标有点大 所以看起来会有点卡
+
 ### 使用
 
 启动应用后，打开浏览器(chrome或者firefox) 打开浏览器,输入 localhost:3000/index.html 可以看到抽奖界面．
