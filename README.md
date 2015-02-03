@@ -11,18 +11,17 @@ Lottery
 1. nodejs 环境
 2. 基本npm包依赖
 
-｀｀｀
+```
 npm install node-dev -g
 npm install coffee-script -g
-｀｀｀
+```
 
 ## 安装
 clone 本仓库到本地后，进去根目录．
 
-｀｀｀
+```
 cd lottery
-npm install
-｀｀｀
+```
 
 ## 启动
 ```
@@ -80,7 +79,7 @@ node-dev server/src/convert.coffee
 明显增多．当然，如果你笔记本比较好，而且测试过不过出现显卡过热导致系统黑屏现象，那么可以无视这个问题）
 3. 因为是针对一定数量的奖品和中间数量，可能存在一些其他设置写死，如果你在使用过程中不明白可以提issue或者发邮件我.
 鉴于国内网络环境邮箱地址(ec.huyinghuan@gmail.com 或 xiacijian@163.com). 但是issue是最佳选择．
-4. 如果你觉得能使用并且好用,欢迎捐赠到支付宝 646344359@qq.com (1毛或１块都是鼓励)．谢谢
+4. 如果你觉得能使用并且好用,欢迎捐赠到支付宝 646344359@qq.com (仅需0.1元鼓励)．谢谢
 5. 请使用代码master分支．
 
 ## License
