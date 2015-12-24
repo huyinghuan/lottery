@@ -36,7 +36,7 @@ npm start
 demo效果:
 ![alt tag](https://cloud.githubusercontent.com/assets/3005433/6016636/e36c86b4-abbf-11e4-9847-98d9315c477a.gif)
 
-图标有点大 所以看起来会有点卡
+图有点大 所以github上看起来会有点卡,但实际没有卡顿
 
 ### 使用
 
