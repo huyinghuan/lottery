@@ -2,7 +2,9 @@ Lottery
 ---------------
   公司年会抽奖程序
   
-  这个是2015的，另附2016的：　https://github.com/huyinghuan/lottery-2016　　实际效果差不多只是多了名单打印，奖品设置等．
+  这个是2015的，另附2016的：　https://github.com/huyinghuan/lottery-2016
+  
+  实际效果差不多只是多了名单打印，奖品设置等．
 
 #### ps: 你们这些坏人fork项目一个star都不给(T_T)
 
