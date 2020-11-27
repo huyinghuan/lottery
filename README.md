@@ -1,4 +1,11 @@
 Lottery
+
+
+# NOTE 建议使用这个，更完善 更符合现在的浏览器
+
+[https://github.com/JX3BOX/lottery](https://github.com/JX3BOX/lottery)
+
+
 ---------------
   公司年会抽奖程序
   
